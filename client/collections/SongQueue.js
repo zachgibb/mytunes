@@ -7,15 +7,17 @@ var SongQueue = Songs.extend({
     //     this.at(0).play();
     // }, this);
     this.on('remove', function() {
-      console.log('SOMETHING MOVED!!!!! KILL IT');
-      if (this.length > 0) {
-        this.at(0).play();
-      }
+      console.log('SOMETHING MOVED!!!!!');
+    });
+    this.on('add', function() {
+      console.log('something was added to the queue');
     });
   },
 
   playFirst: function() {
-    this.at(0).play();
+    if (this.length > 0) {
+      this.at(0).play();
+    }
   },
 
   enqueue: function(song) {
